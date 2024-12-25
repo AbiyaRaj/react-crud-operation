@@ -9,15 +9,15 @@ const Users = () =>{
         try {
             const page = 1;
             const userData = await UseAllGetUsers(page);
-            setUserDetails(userData); 
+            setUserDetails(userData);
         } catch (error) {
             console.error("Error fetching users:", error);
         }
     };
-    
+
     useEffect(() =>{
         getAllUsers();
-    },[] )
+    }, [])
 
     return(
         <>

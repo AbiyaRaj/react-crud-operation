@@ -81,7 +81,7 @@ export const UseAllGetUsers = (page) => new Promise((res, rej) =>{
 })
 
 export const UseDeleteUser = (id) => new Promise((res, rej) =>{
-    const url = `${API_URLS.DELETE_USER}/${id}`;
+    const url = `${API_URLS.GET_ALL_USERS}/${id}`;
 
     fetch(url, {
         method : 'POST',
