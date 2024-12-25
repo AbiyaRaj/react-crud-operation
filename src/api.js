@@ -80,15 +80,14 @@ export const UseAllGetUsers = (page) => new Promise((res, rej) =>{
     });
 })
 
-export const UseDeleteUser = (data) => new Promise((res, rej) =>{
-    const url = API_URLS.DELETE_USER;
+export const UseDeleteUser = (id) => new Promise((res, rej) =>{
+    const url = `${API_URLS.DELETE_USER}/${id}`;
 
     fetch(url, {
         method : 'POST',
         headers : {
             'Content-Type' : 'application/json',
-        },
-        body: JSON.stringify(data),  
+        }, 
         redirect: 'follow'
     })
 

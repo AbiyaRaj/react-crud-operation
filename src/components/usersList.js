@@ -63,12 +63,8 @@ const UsersList = ({users}) =>{
     }
 
     const deleteUserDetails = async() => {
-        const param = 
-        {
-            'id': __userID
-        }
-
-        const deleteUser = await UseDeleteUser(param)
+        const id            = __userID;
+        const deleteUser    = await UseDeleteUser(id);
 
         if(!deleteUser?.error)
         {
@@ -123,7 +119,7 @@ const UsersList = ({users}) =>{
                                             <td>
                                                 <div class="d-flex gap-2">
                                                     <button type="button" class="btn btn-outline-success" onClick={() => editSingleUser(item)} data-bs-toggle="modal" data-bs-target="#userModal"><i class="bi bi-pen"></i></button>
-                                                    <button type="button" class="btn btn-outline-danger" onClick={() => deleteSingleUser(item.us_id)} data-bs-toggle="modal" data-bs-target="#deleteUserModal"><i class="bi bi-trash"></i></button>
+                                                    <button type="button" class="btn btn-outline-danger" onClick={() => deleteSingleUser(item.id)} data-bs-toggle="modal" data-bs-target="#deleteUserModal"><i class="bi bi-trash"></i></button>
                                                 </div>
                                             </td>
                                         </tr>
