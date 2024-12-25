@@ -14,8 +14,6 @@ const Users = () =>{
             console.error("Error fetching users:", error);
         }
     };
-
-    console.log(JSON.stringify(userDetails, null, 2), 'userDetails');
     
     useEffect(() =>{
         getAllUsers();

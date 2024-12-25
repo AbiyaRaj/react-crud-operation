@@ -13,8 +13,6 @@ const UsersList = ({users}) =>{
     const [userDetails, setUserDetails] = useState(dataArray);
     const [editDetails, setEditDetails] = useState([]);
 
-    console.log(userDetails, 'userDetails');
-
     var __userID        = "";
     const emptyData = () =>
     {
@@ -107,9 +105,7 @@ const UsersList = ({users}) =>{
                     <tbody>
                         {
                             Array.isArray(userDetails) && 
-                            userDetails.map((item, index) => {
-                                console.log(item, 'item');
-                                
+                            userDetails.map((item, index) => {                                
                                     return (
                                         <tr key={index}>
                                             <td><img src={item?.avatar}/></td>

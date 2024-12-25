@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { userLogin } from "../../api";
 import { useNavigate } from "react-router-dom";
+import { setSessionToken, getSessionToken } from "../../utils/cookies";
 
 const Login = () =>{
 
@@ -8,6 +9,19 @@ const Login = () =>{
     const [userPassword, setUserPassword]   = useState('');
 
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const token = getSessionToken();
+        console.log(token, 'token');
+        
+        if (token) {
+            navigate('/users'); 
+        }
+        else
+        {
+            navigate('/'); 
+        }
+    }, [navigate]);
 
     const userLoginDetails = async() => {
         const data = {
@@ -20,12 +34,10 @@ const Login = () =>{
         {
             if(loginUser?.token)
             {
+                setSessionToken(loginUser?.token);
                 navigate('users')
             }
         }
-
-        console.log(loginUser, 'loginUser');
-        
     }
 
     return(
